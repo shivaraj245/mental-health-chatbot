@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health ChatBot</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-xl-3 chat-sidebar">
+                <div class="card mb-sm-3 mb-md-0 h-100">
+                    <div class="card-header text-center">
+                        <h4>Mental Health ChatBot</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Chatbot Type Selector -->
+                        <div class="chatbot-selector mb-4">
+                            <h5 class="mb-3">Select Chatbot Type</h5>
+                            <div class="btn-group-vertical w-100">
+                                <button class="btn btn-outline-primary mb-2 model-btn active" data-type="rule">
+                                    <i class="fas fa-robot mr-2"></i>Rule-based
+                                </button>
+                                <button class="btn btn-outline-primary model-btn" data-type="gemini">
+                                    <i class="fas fa-gem mr-2"></i>Gemini
+                                </button>
+                            </div>
+                            <div id="modelStatus" class="mt-2 text-muted">
+                                Current: Rule-based Mode
+                            </div>
+                            <div class="mt-3">
+                                <button id="resetBtn" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-redo mr-2"></i>Reset Conversation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="col-md-9 col-xl-9">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <div class="chat-status">
+                                <i class="fas fa-circle text-success mr-2"></i>
+                                <span id="chatbotStatus">Online</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body chat-body" id="messageFormeight">
+                        <!-- Messages will be displayed here -->
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="input-group">
+                            <input type="text" id="text" class="form-control type_msg" 
+                                   placeholder="Type your message...">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="sendBtn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                                <!-- <button class="btn btn-outline-secondary" type="button" id="uploadButton">
+                                    <i class="fas fa-image"></i>
+                                </button>
+                                <input type="file" id="imageUpload" accept="image/*" style="display: none;"> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for switching confirmation -->
+    <div class="modal fade" id="switchModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Switch Chatbot Type</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to switch the chatbot type? This will clear your current chat.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmSwitch">Switch</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

@@ -1,72 +1,789 @@
 {
-  "intents": [
-    {
-      "tag": "greeting",
-      "patterns": ["Hi", "Hello", "Hey", "Greetings", "What's up?", "Good day"],
-      "responses": ["Hello!", "Hi there!", "Greetings!", "Hey! How can I assist you today?"],
-      "context_set": ""
-    },
-    {
-      "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye", "Take care"],
-      "responses": ["Goodbye!", "Take care!", "See you soon!", "Have a great day!"],
-      "context_set": ""
-    },
-    {
-      "tag": "thanks",
-      "patterns": ["Thank you", "Thanks", "I appreciate it", "That's helpful"],
-      "responses": ["You're welcome!", "No problem!", "Happy to help!", "Anytime!"],
-      "context_set": ""
-    },
-    {
-      "tag": "mental_health",
-      "patterns": [
-        "I feel sad",
-        "I'm depressed",
-        "I'm anxious",
-        "I have anxiety",
-        "I'm feeling low",
-        "I don't feel good",
-        "I'm not okay"
-      ],
-      "responses": [
-        "I'm sorry you're feeling this way. How can I assist you?",
-        "It's okay to feel like this sometimes. I'm here for you.",
-        "Please tell me more about how you're feeling. I'm here to listen.",
-        "I'm sorry to hear that. Do you want to talk about it?"
-      ],
-      "context_set": ""
-    },
-    {
-      "tag": "help_depression",
-      "patterns": [
-        "How can someone feel better or fix depression?",
-        "What can I do if I'm feeling depressed?",
-        "How can I overcome depression?",
-        "What should I do when I'm feeling down?",
-        "Can you help me with depression?"
-      ],
-      "responses": [
-        "There are many ways to address depression. Talking to someone, engaging in activities you enjoy, or seeking professional help can be very beneficial.",
-        "Exercise, spending time with loved ones, and focusing on self-care are great ways to start feeling better.",
-        "It's important to talk to a mental health professional if you're feeling overwhelmed. They can provide the support you need."
-      ],
-      "context_set": ""
-    },
-    {
-      "tag": "self_help_tips",
-      "patterns": [
-        "What are some self-help tips?",
-        "Can you give me advice on how to feel better?",
-        "How can I manage my emotions better?",
-        "What can I do to improve my mental health?"
-      ],
-      "responses": [
-        "Practicing mindfulness, engaging in regular exercise, and maintaining a balanced diet can improve your mental health.",
-        "Try to establish a routine, get enough sleep, and stay connected with your friends and family.",
-        "Remember to take breaks and do things that you enjoy. Self-care is essential."
-      ],
-      "context_set": ""
-    }
-  ]
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": [
+          "Hi", "Hey", "Hello", "Howdy", "Hola", "Bonjour", "What's up?", "How are you?",
+          "Good morning", "Good evening", "Greetings", "Nice to meet you", "Hi there", "Yo", "Sup"
+        ],
+        "responses": [
+          "Hello there. Tell me how are you feeling today?",
+          "Hi there. What brings you here today?",
+          "Hi there. How are you feeling today?",
+          "Great to see you. How do you feel currently?",
+          "Hello! How can I support you today?",
+          "Hey! What's on your mind?",
+          "Greetings! How can I assist you?",
+          "Nice to meet you! How are you doing?",
+          "Hello! How are you feeling?",
+          "Hey, what can I do for you?"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": [
+          "Bye", "Goodbye", "See you later", "I'm leaving", "Talk to you later", "Have a nice day",
+          "Farewell", "Take care", "See ya", "Later", "Adios", "Peace out"
+        ],
+        "responses": [
+          "Take care. Reach out if you need anything.",
+          "Goodbye! Remember, you're not alone.",
+          "See you soon. Stay safe.",
+          "Have a nice day.",
+          "Bye! Come back again.",
+          "Farewell! Take care of yourself.",
+          "See you later! Feel free to return anytime.",
+          "Take care, and remember I'm here if you need me.",
+          "Goodbye, and have a wonderful day.",
+          "Later! Stay strong."
+        ]
+      },
+      {
+        "tag": "what is depression?",
+        "patterns": [
+          "What is depression?", "what is depression?", "Define depression", "Explain depression",
+          "What does depression mean?", "What are the symptoms of depression?"
+        ],
+        "responses": [
+          "Depression is a common and serious medical illness that negatively affects how you feel, the way you think and how you act. Fortunately, it is treatable. It causes feelings of sadness and/or a loss of interest in activities you once enjoyed and can lead to various emotional and physical problems.",
+          "Depression is a mood disorder that causes a persistent feeling of sadness and loss of interest. Also called major depressive disorder or clinical depression, it affects how you feel, think and behave and can lead to a variety of emotional and physical problems.",
+          "Depression is a mental health condition characterized by persistent sadness, loss of interest, and can affect daily life.",
+          "Depression involves prolonged feelings of sadness, hopelessness, and often physical symptoms that interfere with daily functioning."
+        ]
+      },
+      {
+        "tag": "anxiety",
+        "patterns": [
+          "I feel anxious", "I can't stop worrying", "My heart is racing", "I'm having a panic attack",
+          "I feel like something bad will happen", "I can't calm down", "I'm scared for no reason",
+          "I'm nervous all the time", "What if I fail?", "I'm overthinking everything",
+          "I'm so stressed", "I'm freaking out", "I'm worried sick", "I feel jittery", "I'm on edge",
+          "I'm restless", "My thoughts are racing", "I'm having trouble breathing", "I feel trapped"
+        ],
+        "responses": [
+          "Anxiety can feel overwhelming. Try taking slow, deep breaths—inhale for 4 seconds, hold for 4, exhale for 6.",
+          "You're safe right now. Can you name 5 things you can see around you? It might help ground you.",
+          "Would it help to talk about what's making you anxious?",
+          "Try focusing on your breath. In and out, slow and steady.",
+          "Remember, this feeling will pass. Let's try some relaxation techniques.",
+          "Focus on the present moment. What are 5 things you can hear right now?",
+          "Let's try to identify what's triggering your anxiety. Talking it out can help."
+        ]
+      },
+      {
+        "tag": "suicidal_thoughts",
+        "patterns": [
+          "I want to kill myself", "I want to die", "I'm going to commit suicide", "I've thought about ending it all",
+          "I don't want to live anymore", "I'm considering suicide", "I'm thinking of taking my life",
+          "I feel like there's no point in living", "I'm ready to die", "I can't take it anymore",
+          "Life is not worth living", "I'm going to hurt myself", "I feel hopeless"
+        ],
+        "responses": [
+          "I'm very sorry to hear that, but please seek help immediately. You are not alone. Contact a crisis line or call Befrienders Kenya: +254 722 178 177.",
+          "You matter, and your life is valuable. Please speak to someone you trust or a mental health professional right away.",
+          "Please know that you are not alone, and help is available. Contact a suicide prevention hotline immediately.",
+          "Your life is precious. Please reach out to someone you trust or a crisis hotline. You don't have to go through this alone.",
+          "I understand you're in pain. Please seek immediate professional help. There are people who care and want to support you."
+        ]
+      },
+      {
+        "tag": "i am good for nothing.",
+        "patterns": [
+          "i am good for nothing.", "I am good for nothing!", "I'm worthless", "I feel useless", "I have no value",
+          "I'm a failure", "I can't do anything right", "I'm a burden", "I'm hopeless"
+        ],
+        "responses": [
+          "Don't ever think you cannot achieve what you want. You are capable of reaching your goals. Here's a quote for you: 'Everything you can imagine is real.'",
+          "You are not worthless. Everyone has value and potential. Don't underestimate yourself.",
+          "You are not a failure. Everyone makes mistakes. Focus on your strengths and learn from your experiences.",
+          "You are not a burden. Your feelings are valid, and you deserve support.",
+          "You have value and worth. Your life matters."
+        ]
+      },
+      {
+        "tag": "i am feeling stressed lately",
+        "patterns": [
+          "I am feeling stressed lately", "I'm under a lot of stress", "I'm feeling overwhelmed", "I'm so stressed out",
+          "I can't handle the stress", "I'm feeling pressured", "I'm feeling tense", "I'm feeling strained",
+          "I'm feeling burdened", "I'm feeling anxious from stress", "I need to de-stress"
+        ],
+        "responses": [
+          "My research says that music is the best way to calm yourself. So visit the link and listen to your favourite music. It will definitely cheer you up: \"https://www.spotify.com\"",
+          "Stress can be overwhelming. Try some deep breathing exercises or meditation to help calm your mind.",
+          "It's okay to feel stressed. Let's try to identify the sources of your stress and find ways to manage them.",
+          "Remember, you're not alone in feeling stressed. Taking breaks and practicing self-care can help.",
+          "Let's explore some stress-reduction techniques. Would you like to try some guided relaxation?"
+        ]
+      },
+      {
+        "tag": "loneliness",
+        "patterns": [
+          "I feel lonely", "I'm so alone", "I have no friends", "I feel isolated", "I'm feeling disconnected",
+          "I feel like nobody understands me", "I'm all by myself", "I'm feeling abandoned"
+        ],
+        "responses": [
+          "Loneliness can be tough. Remember, you're not truly alone. Would you like to explore ways to connect with others?",
+          "It's important to reach out when you feel lonely. There are people who care and want to support you.",
+          "Feeling isolated is common. Let's find some resources or activities to help you connect with others.",
+          "You deserve connection and support. Let's explore ways to build meaningful relationships.",
+          "Loneliness can be painful. Remember, there are communities and resources available to help you."
+        ]
+      },
+      {
+        "tag": "motivation",
+        "patterns": [
+          "I have no motivation", "I can't find motivation", "I'm feeling unmotivated", "I need motivation",
+          "How can I get motivated?", "I'm feeling lazy", "I'm procrastinating"
+        ],
+        "responses": [
+          "Finding motivation can be challenging. Let's break down your goals into smaller, manageable steps.",
+          "Remember, progress is progress, no matter how small. Let's celebrate your small wins and build from there.",
+          "Sometimes, finding your 'why' can help boost motivation. What are your long-term goals and values?",
+          "Let's explore some strategies to overcome procrastination and build momentum.",
+          "Remember, you're capable of achieving your goals. Let's find ways to reignite your passion."
+        ]
+      },
+      {
+        "tag": "self_care",
+        "patterns": [
+          "How to take care of myself?", "What is self care?", "I need self care tips",
+          "How to practice self care?", "I need to take better care of myself",
+          "I neglect myself", "I don't take care of myself", "Self care ideas",
+          "How to be kind to myself?", "I need to be kinder to myself"
+        ],
+        "responses": [
+          "Self-care is essential. Start with small things: get enough sleep, eat nourishing food, and take breaks when needed.",
+          "Remember that self-care isn't selfish. It's necessary for your well-being. What's one thing you can do for yourself today?",
+          "Self-care looks different for everyone. It could be reading a book, taking a walk, or simply resting. What brings you peace?",
+          "Try to incorporate small self-care activities into your daily routine. Even 5 minutes of mindfulness can make a difference.",
+          "Self-care is about being kind to yourself. What's one thing you can do today to show yourself some kindness?"
+        ]
+      },
+      {
+        "tag": "anger",
+        "patterns": [
+          "I'm so angry", "I feel angry all the time", "I can't control my anger", "I'm furious", "I'm frustrated",
+          "I'm irritated", "I'm mad", "I'm losing my temper"
+        ],
+        "responses": [
+          "Anger is a normal emotion, but it's important to manage it constructively. Let's explore some anger management techniques.",
+          "Try taking a few deep breaths and counting to ten. It can help calm your nervous system.",
+          "Sometimes, physical activity can help release pent-up anger. Consider going for a walk or run.",
+          "Talking to someone you trust can help you process your anger and find healthy coping mechanisms.",
+          "Remember, it's okay to feel angry, but it's important to express it in a healthy way."
+        ]
+      },
+      {
+        "tag": "grief",
+        "patterns": [
+          "I'm grieving", "I'm dealing with loss", "I'm sad about someone passing", "I'm heartbroken",
+          "I'm mourning", "I feel empty", "I can't get over this loss"
+        ],
+        "responses": [
+          "Grief is a natural response to loss. Allow yourself time to grieve and process your emotions.",
+          "Remember, there's no right or wrong way to grieve. Be gentle with yourself and seek support when needed.",
+          "Talking to a therapist or grief counselor can provide valuable support during this difficult time.",
+          "Remember the good memories and cherish the time you had with your loved one.",
+          "Allow yourself to feel your emotions without judgment. Grief is a process, and it takes time."
+        ]
+      },
+      {
+        "tag": "sleep_problems",
+        "patterns": [
+          "I can't sleep", "I have trouble sleeping", "Insomnia", "I'm always tired",
+          "I can't fall asleep", "I wake up too early", "I have bad dreams",
+          "I'm sleep deprived", "I need sleep tips", "How to sleep better?"
+        ],
+        "responses": [
+          "Sleep is crucial for mental health. Try establishing a regular sleep schedule and creating a relaxing bedtime routine.",
+          "Avoid screens before bed and create a comfortable sleep environment. Would you like some specific sleep hygiene tips?",
+          "If you're having trouble sleeping, try relaxation techniques like deep breathing or progressive muscle relaxation.",
+          "Remember that occasional sleep problems are normal, but if they persist, it might be good to talk to a healthcare provider.",
+          "Try to maintain a consistent sleep schedule and create a bedtime routine that helps you wind down."
+        ]
+      },
+      {
+        "tag": "relationship_issues",
+        "patterns": [
+          "I'm having relationship problems", "My relationship is struggling", "I'm fighting with my partner",
+          "I'm having trouble with my family", "I'm having issues with my friends",
+          "I don't know what to do about my relationship"
+        ],
+        "responses": [
+          "Relationship issues can be challenging. Open communication and empathy are key to resolving conflicts.",
+          "Consider couples counseling or family therapy to address relationship issues and improve communication.",
+          "Remember, healthy relationships require effort and compromise from both parties.",
+          "Setting boundaries and expressing your needs can help improve your relationships.",
+          "It's important to prioritize healthy relationships and seek support when needed."
+        ]
+      },
+      {
+        "tag": "stress_management",
+        "patterns": [
+          "I'm stressed", "I feel overwhelmed", "Too much pressure", "I can't handle this",
+          "Everything is too much", "I'm under a lot of stress", "I'm feeling pressured",
+          "I'm stressed out", "I'm burning out", "I need a break", "I'm exhausted",
+          "I can't cope with stress", "How to manage stress?", "Stress is killing me"
+        ],
+        "responses": [
+          "Let's try some stress management techniques. First, take a deep breath. What's one small thing you can do right now to reduce your stress?",
+          "Remember to take breaks and practice self-care. Even small activities like stretching or listening to music can help reduce stress.",
+          "Would it help to break down what's stressing you into smaller, manageable parts?",
+          "Try the 4-7-8 breathing technique: inhale for 4 seconds, hold for 7, exhale for 8. Repeat a few times.",
+          "Remember that it's okay to take things one step at a time. You don't have to solve everything at once."
+        ]
+      },
+      {
+        "tag": "self_esteem",
+        "patterns": [
+          "I have low self-esteem", "I don't like myself", "I feel insecure", "I have no confidence",
+          "I'm always comparing myself to others"
+        ],
+        "responses": [
+          "Low self-esteem can be challenging. Focus on your strengths and celebrate your accomplishments.",
+          "Remember, you are unique and valuable. Avoid comparing yourself to others and focus on your own journey.",
+          "Practice self-compassion and treat yourself with kindness and understanding.",
+          "Challenge negative self-talk and replace it with positive affirmations.",
+          "Remember, building self-esteem takes time and effort. Be patient with yourself and celebrate your progress."
+        ]
+      },
+      {
+        "tag": "eating_disorders",
+        "patterns": [
+          "I have an eating disorder", "I'm struggling with my eating habits", "I'm obsessed with my weight",
+          "I'm afraid of gaining weight", "I'm binge eating", "I'm purging"
+        ],
+        "responses": [
+          "Eating disorders are serious mental health conditions. Please seek professional help from a therapist or nutritionist.",
+          "Remember, your worth is not determined by your weight or appearance. Focus on your overall health and well-being.",
+          "Talking to a therapist can help you address the underlying issues related to your eating disorder.",
+          "Recovery is possible. Be patient with yourself and seek support from loved ones and professionals.",
+          "Remember, you are not alone. There are people who care and want to support you in your recovery."
+        ]
+      },
+      {
+        "tag": "substance_abuse",
+        "patterns": [
+          "I'm struggling with substance abuse", "I'm addicted to drugs/alcohol", "I can't stop using",
+          "I need help with my addiction", "I'm worried about my substance use"
+        ],
+        "responses": [
+          "Substance abuse can have serious consequences. Please seek professional help from a therapist or addiction specialist.",
+          "Remember, recovery is possible. There are treatment programs and support groups available to help you.",
+          "Talking to a therapist can help you address the underlying issues related to your substance use.",
+          "Remember, you are not alone. There are people who care and want to support you in your recovery.",
+          "Seeking help is a sign of strength. Take the first step towards recovery and reach out for support."
+        ]
+      },
+      {
+        "tag": "trauma",
+        "patterns": [
+          "I'm dealing with trauma", "I have PTSD", "I'm experiencing flashbacks", "I have nightmares",
+          "I'm struggling to cope with trauma"
+        ],
+        "responses": [
+          "Trauma can have a profound impact on your life. Please seek professional help from a therapist specializing in trauma.",
+          "Remember, you are not alone. There are resources and support groups available to help you heal from trauma.",
+          "Talking to a therapist can help you process your trauma and develop healthy coping mechanisms.",
+          "Remember, healing from trauma takes time and effort. Be patient with yourself and celebrate your progress.",
+          "Remember, you are strong and resilient. You can overcome the challenges associated with trauma."
+        ]
+      },
+      {
+        "tag": "finding_purpose",
+        "patterns": [
+          "I don't know my purpose", "I feel lost", "I don't know what to do with my life",
+          "How do I find my purpose?", "What is my purpose?"
+        ],
+        "responses": [
+          "Finding your purpose can be a journey of self-discovery. Explore your passions, values, and interests.",
+          "Remember, your purpose may evolve over time. Be open to new experiences and opportunities.",
+          "Consider volunteering or engaging in activities that align with your values and make a positive impact.",
+          "Talking to a therapist or career counselor can provide guidance and support in finding your purpose.",
+          "Remember, your purpose is unique to you. Embrace your individuality and celebrate your journey."
+        ]
+      },
+      {
+        "tag": "forgiveness",
+        "patterns": [
+          "How do I forgive someone?", "I can't forgive someone", "I'm struggling with forgiveness",
+          "How do I forgive myself?", "I feel guilty"
+        ],
+        "responses": [
+          "Forgiveness is a process that takes time and effort. Be patient with yourself and allow yourself to heal.",
+          "Remember, forgiveness is not about condoning harmful behavior. It's about releasing yourself from the burden of resentment.",
+          "Talking to a therapist can help you process your emotions and develop strategies for forgiveness.",
+          "Remember, forgiving yourself is just as important as forgiving others. Practice self-compassion and learn from your mistakes.",
+          "Forgiveness can bring peace and healing. It's a gift you give yourself."
+        ]
+      },
+      {
+        "tag": "self_compassion",
+        "patterns": [
+          "How do I practice self-compassion?", "What is self-compassion?", "I'm too hard on myself",
+          "I need to be kinder to myself", "How do I stop self-criticism?"
+        ],
+        "responses": [
+          "Self-compassion involves treating yourself with the same kindness and understanding you would offer to a friend.",
+          "Remember, everyone makes mistakes and experiences challenges. Be gentle with yourself and acknowledge your imperfections.",
+          "Practice mindfulness to become aware of your thoughts and feelings without judgment.",
+          "Remember, you are worthy of love and compassion, including from yourself.",
+          "Self-compassion is a skill that takes practice. Be patient with yourself and celebrate your progress."
+        ]
+      },
+      {
+        "tag": "setting_boundaries",
+        "patterns": [
+          "How do I set boundaries?", "I have trouble setting boundaries", "What are healthy boundaries?",
+          "I feel taken advantage of", "I need to say no more often"
+        ],
+        "responses": [
+          "Setting boundaries is essential for healthy relationships and self-care. Communicate your needs and limits clearly and assertively.",
+          "Remember, it's okay to say no. You have the right to protect your time, energy, and emotional well-being.",
+          "Practice setting small boundaries and gradually increase your comfort level.",
+          "Remember, healthy boundaries are not selfish. They are essential for maintaining healthy relationships.",
+          "Setting boundaries can help you prioritize your needs and prevent burnout."
+        ]
+      },
+      {
+        "tag": "positive_affirmations",
+        "patterns": [
+          "What are positive affirmations?", "How do I use positive affirmations?",
+          "I need to improve my self-talk", "How do I build confidence?"
+        ],
+        "responses": [
+          "Positive affirmations are statements that reinforce positive beliefs about yourself and your abilities.",
+          "Repeat positive affirmations daily, such as 'I am worthy of love and respect' or 'I am capable of achieving my goals.'",
+          "Write down your positive affirmations and place them where you can see them regularly.",
+          "Remember, positive affirmations can help shift your mindset and build confidence.",
+          "Positive affirmations can help you challenge negative self-talk and cultivate a more positive outlook."
+        ]
+      },
+      {
+        "tag": "time_management",
+        "patterns": [
+          "How do I improve my time management?", "What are time management tips?", "I struggle with time management",
+          "How do I prioritize tasks?", "How do I avoid distractions?"
+        ],
+        "responses": [
+          "Time management involves planning and organizing your time effectively.",
+          "Remember, time management can help you reduce stress and increase productivity.",
+          "Prioritize tasks, set deadlines, and avoid distractions to improve time management.",
+          "Remember, time management is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Using tools like calendars, to-do lists, and timers can help you manage your time effectively."
+        ]
+      },
+      {
+        "tag": "self_discipline",
+        "patterns": [
+          "How do I build self-discipline?", "What is self-discipline?", "I lack self-discipline",
+          "How do I stay motivated?", "How do I stick to my goals?"
+        ],
+        "responses": [
+          "Self-discipline involves controlling your impulses and staying focused on your goals.",
+          "Remember, self-discipline is essential for achieving success and personal growth.",
+          "Start by setting small, achievable goals and gradually increase the difficulty.",
+          "Remember, self-discipline is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Visualizing your goals and rewarding yourself for progress can help build self-discipline."
+        ]
+      },
+      {
+        "tag": "self_motivation",
+        "patterns": [
+          "How do I stay self-motivated?", "What is self-motivation?", "I lack motivation",
+          "How do I find my drive?", "How do I keep myself going?"
+        ],
+        "responses": [
+          "Self-motivation involves finding internal drive and enthusiasm to pursue your goals.",
+          "Remember, self-motivation can help you overcome obstacles and achieve your dreams.",
+          "Identify your passions, set meaningful goals, and visualize your success to stay self-motivated.",
+          "Remember, self-motivation is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Surrounding yourself with positive influences and celebrating small wins can help maintain self-motivation."
+        ]
+      },
+      {
+        "tag": "self_reliance",
+        "patterns": [
+          "How do I build self-reliance?", "What is self-reliance?", "I feel dependent on others",
+          "How do I become more independent?", "How do I rely on myself?"
+        ],
+        "responses": [
+          "Self-reliance involves trusting in your own abilities and taking responsibility for your actions.",
+          "Remember, self-reliance can help you build confidence and resilience.",
+          "Start by making small decisions independently and gradually increase your autonomy.",
+          "Remember, self-reliance is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Learning new skills and taking on challenges can help build self-reliance."
+        ]
+      },
+      {
+        "tag": "self_respect",
+        "patterns": [
+          "How do I build self-respect?", "What is self-respect?", "I have low self-respect",
+          "How do I value myself?", "How do I treat myself with respect?"
+        ],
+        "responses": [
+          "Self-respect involves valuing your worth and treating yourself with kindness and dignity.",
+          "Remember, self-respect is essential for healthy relationships and personal well-being.",
+          "Set boundaries, practice self-compassion, and prioritize your needs to build self-respect.",
+          "Remember, self-respect is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Surrounding yourself with supportive people and avoiding toxic relationships can help build self-respect."
+        ]
+      },
+      {
+        "tag": "self_trust",
+        "patterns": [
+          "How do I build self-trust?", "What is self-trust?", "I don't trust myself",
+          "How do I believe in myself?", "How do I rely on my judgment?"
+        ],
+        "responses": [
+          "Self-trust involves believing in your abilities and trusting your intuition.",
+          "Remember, self-trust is essential for making confident decisions and pursuing your goals.",
+          "Start by keeping promises to yourself and reflecting on your past successes.",
+          "Remember, self-trust is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Paying attention to your gut feelings and making decisions aligned with your values can help build self-trust."
+        ]
+      },
+      {
+        "tag": "self_validation",
+        "patterns": [
+          "How do I practice self-validation?", "What is self-validation?", "I seek external validation",
+          "How do I validate my feelings?", "How do I trust my own experiences?"
+        ],
+        "responses": [
+          "Self-validation involves acknowledging and accepting your own feelings and experiences.",
+          "Remember, self-validation is essential for building self-esteem and emotional well-being.",
+          "Practice acknowledging your emotions without judgment and validating your own experiences.",
+          "Remember, self-validation is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Learning to trust your own judgment and experiences can help build self-validation."
+        ]
+      },
+      {
+        "tag": "self_worth",
+        "patterns": [
+          "How do I build self-worth?", "What is self-worth?", "I feel worthless",
+          "How do I value myself?", "How do I recognize my value?"
+        ],
+        "responses": [
+          "Self-worth involves recognizing your inherent value and deservingness of love and respect.",
+          "Remember, self-worth is not based on external achievements or validation.",
+          "Practice self-compassion, challenge negative self-talk, and focus on your strengths to build self-worth.",
+          "Remember, self-worth is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Surrounding yourself with supportive people and avoiding toxic relationships can help build self-worth."
+        ]
+      },
+      {
+        "tag": "sense_of_belonging",
+        "patterns": [
+          "How do I find a sense of belonging?", "What is a sense of belonging?", "I feel like I don't belong",
+          "How do I feel connected?", "How do I find my community?"
+        ],
+        "responses": [
+          "A sense of belonging involves feeling connected to others and accepted within a group or community.",
+          "Remember, a sense of belonging is essential for social and emotional well-being.",
+          "Join groups or communities that align with your interests and values.",
+          "Remember, building a sense of belonging takes time and effort. Be patient with yourself and celebrate your connections.",
+          "Engaging in activities that promote connection and belonging can help you feel more connected."
+        ]
+      },
+      {
+        "tag": "social_anxiety",
+        "patterns": [
+          "I have social anxiety", "I'm afraid of social situations", "How do I overcome social anxiety?",
+          "I'm nervous around people", "I avoid social events"
+        ],
+        "responses": [
+          "Social anxiety can be challenging. Practice gradual exposure to social situations and challenge negative thoughts.",
+          "Remember, social anxiety is a common condition. You are not alone.",
+          "Talking to a therapist can help you develop coping strategies for social anxiety.",
+          "Remember, overcoming social anxiety takes time and effort. Be patient with yourself and celebrate your progress.",
+          "Focus on your strengths and remember that people are often more understanding than you think."
+        ]
+      },
+      {
+        "tag": "social_skills",
+        "patterns": [
+          "How do I improve my social skills?", "What are social skills?", "I struggle with social interactions",
+          "How do I make friends?", "How do I communicate effectively?"
+        ],
+        "responses": [
+          "Social skills involve communicating and interacting effectively with others.",
+          "Remember, social skills can be learned and improved with practice.",
+          "Practice active listening, empathy, and assertiveness to improve your social skills.",
+          "Remember, building social skills takes time and effort. Be patient with yourself and celebrate your progress.",
+          "Engaging in social activities and seeking feedback can help improve your social skills."
+        ]
+      },
+      {
+        "tag": "social_support",
+        "patterns": [
+          "I feel alone", "I need someone to talk to", "I have no friends",
+          "I'm lonely", "I need support", "I feel isolated", "I need to connect",
+          "How to make friends?", "I need social support", "I feel disconnected"
+        ],
+        "responses": [
+          "It's okay to feel lonely sometimes. Would you like to explore ways to build connections with others?",
+          "Remember that reaching out for support is a sign of strength, not weakness. Who in your life can you talk to?",
+          "Building social connections takes time. Start small - maybe join a group or activity that interests you.",
+          "You're not alone in feeling this way. Many people struggle with social connections. Would you like to talk about ways to build your support network?",
+          "Social support is important for mental health. What's one small step you can take to connect with others?"
+        ]
+      },
+      {
+        "tag": "assertiveness",
+        "patterns": [
+          "How do I practice assertiveness?", "What is assertiveness?", "I'm afraid to speak up",
+          "How do I express my needs?", "How do I say no?"
+        ],
+        "responses": [
+          "Assertiveness involves communicating your needs and boundaries respectfully and confidently.",
+          "Remember, assertiveness is essential for healthy relationships and self-advocacy.",
+          "Practice using 'I' statements, setting boundaries, and saying no when necessary.",
+          "Remember, assertiveness is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Role-playing and practicing assertiveness techniques can help build confidence."
+        ]
+      },
+      {
+        "tag": "mindfulness",
+        "patterns": [
+          "What is mindfulness?", "How do I practice mindfulness?", "I want to be more present",
+          "How do I reduce stress with mindfulness?", "How to be mindful?", "I need mindfulness tips",
+          "How to stay present?", "I want to practice mindfulness", "Mindfulness techniques"
+        ],
+        "responses": [
+          "Mindfulness is about being fully present in the moment without judgment. Try focusing on your breath for a few minutes.",
+          "You can practice mindfulness by paying attention to your senses. What do you see, hear, feel, smell, and taste right now?",
+          "A simple mindfulness exercise: take 5 deep breaths, focusing on the sensation of breathing in and out.",
+          "Mindfulness can help reduce stress. Try the '5-4-3-2-1' technique: name 5 things you see, 4 things you feel, 3 things you hear, 2 things you smell, and 1 thing you taste.",
+          "Remember, mindfulness is a practice. It's okay if your mind wanders - just gently bring your attention back to the present moment."
+        ]
+      },
+      {
+        "tag": "gratitude",
+        "patterns": [
+          "How do I practice gratitude?", "What is gratitude?", "I want to be more grateful",
+          "How do I cultivate gratitude?", "Gratitude exercises", "I need to be more thankful",
+          "How to appreciate things more?", "Gratitude practice", "I want to be more positive"
+        ],
+        "responses": [
+          "Gratitude is about appreciating the good things in life. Try keeping a gratitude journal and writing down 3 things you're thankful for each day.",
+          "You can practice gratitude by taking a moment to appreciate small things - like a warm cup of tea or a kind word from someone.",
+          "Try this gratitude exercise: think of 3 people who have helped you and what you appreciate about them.",
+          "Gratitude can shift your perspective. What's one thing that went well today that you're grateful for?",
+          "Remember, gratitude is a practice. Even on difficult days, there are usually small things to be thankful for."
+        ]
+      },
+      {
+        "tag": "emotional_regulation",
+        "patterns": [
+          "How do I regulate my emotions?", "I have trouble controlling my emotions",
+          "What are emotional regulation techniques?", "How do I manage intense emotions?",
+          "I need help with my emotions", "How to handle strong feelings?", "Emotional control",
+          "I feel overwhelmed by emotions", "How to calm down when upset?"
+        ],
+        "responses": [
+          "Emotional regulation is about managing your emotions in a healthy way. Try the 'STOP' technique: Stop, Take a breath, Observe your feelings, Proceed mindfully.",
+          "When emotions feel overwhelming, try grounding techniques like focusing on your breath or naming things you can see around you.",
+          "It's okay to feel your emotions. Try to name what you're feeling - this can help you understand and manage it better.",
+          "Physical activity can help regulate emotions. Even a short walk can help clear your mind and calm your body.",
+          "Remember, emotions are temporary. While they might feel intense now, they will pass. What's one thing you can do to take care of yourself right now?"
+        ]
+      },
+      {
+        "tag": "self_reflection",
+        "patterns": [
+          "How do I practice self-reflection?", "What is self-reflection?", "I want to learn more about myself",
+          "How do I improve self-awareness?"
+        ],
+        "responses": [
+          "Self-reflection involves examining your thoughts, feelings, and behaviors to gain insights into yourself.",
+          "Journaling, meditation, and mindfulness can help you practice self-reflection.",
+          "Remember, self-reflection can help you identify your strengths, weaknesses, and values.",
+          "Self-reflection can help you make more conscious choices and live a more fulfilling life.",
+          "Remember, self-reflection is an ongoing process. Be open to learning and growing."
+        ]
+      },
+      {
+        "tag": "self_acceptance",
+        "patterns": [
+          "How do I practice self-acceptance?", "What is self-acceptance?", "I want to accept myself",
+          "How do I overcome self-criticism?"
+        ],
+        "responses": [
+          "Self-acceptance involves embracing your strengths and weaknesses without judgment.",
+          "Remember, you are worthy of love and acceptance, just as you are.",
+          "Practice self-compassion and treat yourself with kindness and understanding.",
+          "Remember, self-acceptance is a journey, not a destination. Be patient with yourself and celebrate your progress.",
+          "Self-acceptance can help you live a more authentic and fulfilling life."
+        ]
+      },
+      {
+        "tag": "healthy_habits",
+        "patterns": [
+          "What are healthy habits?", "How do I develop healthy habits?", "I want to improve my lifestyle",
+          "How do I make positive changes?"
+        ],
+        "responses": [
+          "Healthy habits include regular exercise, a balanced diet, adequate sleep, and stress management.",
+          "Start by making small, achievable changes and gradually build upon them.",
+          "Remember, consistency is key to developing healthy habits. Be patient with yourself and celebrate your progress.",
+          "Identify your triggers and develop strategies to overcome them.",
+          "Remember, healthy habits can improve your physical and mental well-being."
+        ]
+      },
+      {
+        "tag": "overcoming_challenges",
+        "patterns": [
+          "How do I overcome challenges?", "I'm facing a difficult situation", "How do I build resilience?",
+          "How do I cope with adversity?"
+        ],
+        "responses": [
+          "Overcoming challenges requires resilience, perseverance, and problem-solving skills.",
+          "Remember, challenges can be opportunities for growth and learning.",
+          "Focus on your strengths and resources to overcome obstacles.",
+          "Remember, you are stronger than you think. Believe in your ability to overcome challenges.",
+          "Seeking support from loved ones and professionals can help you navigate difficult situations."
+        ]
+      },
+      {
+        "tag": "self_advocacy",
+        "patterns": [
+          "How do I practice self-advocacy?", "What is self-advocacy?", "I need to speak up for myself",
+          "How do I assert my needs?"
+        ],
+        "responses": [
+          "Self-advocacy involves speaking up for your needs and rights.",
+          "Communicate your needs and boundaries clearly and assertively.",
+          "Remember, you have the right to express your opinions and advocate for yourself.",
+          "Practice assertiveness techniques and build your confidence.",
+          "Remember, self-advocacy is essential for maintaining healthy relationships and well-being."
+        ]
+      },
+      {
+        "tag": "finding_joy",
+        "patterns": [
+          "How do I find joy?", "I feel joyless", "How do I rediscover happiness?",
+          "How do I find happiness again?"
+        ],
+        "responses": [
+          "Finding joy involves engaging in activities that bring you pleasure and fulfillment.",
+          "Remember, joy can be found in small moments of appreciation and connection.",
+          "Explore your passions and interests and make time for activities that bring you joy.",
+          "Remember, joy is a choice. Choose to focus on the positive aspects of your life.",
+          "Remember, you deserve to experience joy and happiness. Prioritize your well-being."
+        ]
+      },
+      {
+        "tag": "building_confidence",
+        "patterns": [
+          "How do I build confidence?", "I have low confidence", "How do I improve my self-esteem?",
+          "How do I become more confident?"
+        ],
+        "responses": [
+          "Building confidence involves challenging negative self-talk and focusing on your strengths.",
+          "Remember, confidence comes from within. Believe in your abilities and celebrate your accomplishments.",
+          "Practice positive affirmations and visualize yourself succeeding.",
+          "Remember, confidence is a skill that takes practice. Be patient with yourself and celebrate your progress.",
+          "Building confidence can help you achieve your goals and live a more fulfilling life."
+        ]
+      },
+      {
+        "tag": "self_improvement",
+        "patterns": [
+          "How do I practice self-improvement?", "What is self-improvement?", "I want to grow as a person",
+          "How do I become a better version of myself?"
+        ],
+        "responses": [
+          "Self-improvement involves continuously learning and growing as a person.",
+          "Remember, self-improvement is a journey, not a destination. Be open to new experiences and opportunities.",
+          "Set goals, develop new skills, and challenge yourself to step outside your comfort zone.",
+          "Remember, self-improvement can enhance your personal and professional life.",
+          "Self-improvement is an ongoing process. Be patient with yourself and celebrate your progress."
+        ]
+      },
+      {
+        "tag": "coping_strategies",
+        "patterns": [
+          "How to cope?", "I need coping strategies", "How to deal with emotions?",
+          "I don't know how to handle this", "I need help coping", "Coping mechanisms",
+          "How to manage emotions?", "I need better ways to cope", "Healthy coping strategies"
+        ],
+        "responses": [
+          "There are many healthy coping strategies. Some include deep breathing, journaling, talking to someone, or engaging in physical activity.",
+          "Try identifying what triggers your emotions and develop a plan for how to handle those situations.",
+          "Remember that it's okay to feel your emotions. The key is finding healthy ways to express and process them.",
+          "Would it help to create a list of coping strategies that work for you? We can brainstorm some together.",
+          "Coping is a skill that takes practice. What's one strategy you'd like to try?"
+        ]
+      },
+      {
+        "tag": "self_reflection_journaling",
+        "patterns": [
+          "How do I use journaling for self-reflection?", "What are journaling prompts for self-reflection?",
+          "How do I start a self-reflection journal?"
+        ],
+        "responses": [
+          "Journaling can be a powerful tool for self-reflection. Write about your thoughts, feelings, and experiences.",
+          "Remember, journaling can help you gain insights into yourself and identify patterns in your life.",
+          "Use journaling prompts to guide your self-reflection, such as 'What am I grateful for?' or 'What are my values?'",
+          "Remember, journaling is a personal and private practice. Write freely and without judgment.",
+          "Journaling can help you process your emotions, set goals, and track your progress."
+        ]
+      },
+      {
+        "tag": "self_forgiveness",
+        "patterns": [
+          "How do I practice self-forgiveness?", "What is self-forgiveness?", "I feel guilty about my past",
+          "How do I let go of regret?"
+        ],
+        "responses": [
+          "Self-forgiveness involves releasing yourself from the burden of guilt and regret.",
+          "Remember, everyone makes mistakes. Practice self-compassion and learn from your experiences.",
+          "Acknowledge your mistakes, apologize if necessary, and commit to making amends.",
+          "Remember, self-forgiveness is a process that takes time. Be patient with yourself and celebrate your progress.",
+          "Self-forgiveness can bring peace and healing. It's a gift you give yourself."
+        ]
+      },
+      {
+        "tag": "self_awareness",
+        "patterns": [
+          "How do I improve self-awareness?", "What is self-awareness?", "I want to understand myself better",
+          "How do I become more self-aware?"
+        ],
+        "responses": [
+          "Self-awareness involves understanding your thoughts, feelings, and behaviors.",
+          "Remember, self-awareness is the foundation for personal growth and development.",
+          "Practice mindfulness, self-reflection, and seeking feedback from others to improve self-awareness.",
+          "Remember, self-awareness can help you make more conscious choices and live a more fulfilling life.",
+          "Self-awareness is an ongoing process. Be open to learning and growing."
+        ]
+      },
+      {
+        "tag": "emotional_intelligence",
+        "patterns": [
+          "How do I develop emotional intelligence?", "What is emotional intelligence?",
+          "I want to improve my social skills", "How do I become more empathetic?"
+        ],
+        "responses": [
+          "Emotional intelligence involves understanding and managing your emotions and the emotions of others.",
+          "Remember, emotional intelligence is essential for building positive relationships and navigating social situations.",
+          "Practice empathy, active listening, and self-awareness to develop emotional intelligence.",
+          "Remember, emotional intelligence can enhance your personal and professional life.",
+          "Emotional intelligence is a skill that takes practice. Be patient with yourself and celebrate your progress."
+        ]
+      },
+      {
+        "tag": "procrastination",
+        "patterns": [
+          "How do I stop procrastinating?", "I procrastinate a lot", "How do I overcome procrastination?",
+          "How do I get motivated to do things?"
+        ],
+        "responses": [
+          "Procrastination can be a common challenge. Break down tasks into smaller, manageable steps.",
+          "Remember, procrastination often stems from fear or anxiety. Identify your triggers and develop strategies to overcome them.",
+          "Practice time management techniques and set realistic deadlines.",
+          "Remember, procrastination can lead to stress and guilt. Take action and celebrate your progress.",
+          "Overcoming procrastination can improve your productivity and well-being."
+        ]
+      }
+    ]
 }

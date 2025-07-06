@@ -1,0 +1,265 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background: #f8f9fa;
+}
+
+body {
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.container {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card {
+    height: 600px;
+    border-radius: 15px !important;
+    background-color: white;
+}
+
+.sidebar-container {
+    height: 600px;
+    padding-right: 0;
+}
+
+.sidebar {
+    background-color: white;
+    height: 100%;
+    border-radius: 15px;
+    padding: 15px;
+    overflow-y: auto;
+    display: none;
+}
+
+.chat-sidebar {
+    background: #fff;
+    border-right: 1px solid #dee2e6;
+}
+
+.chat-body {
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: #f8f9fa;
+}
+
+.chat-session {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-session:hover {
+    background-color: #e9ecef;
+}
+
+.delete-session {
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
+    background-color: #007bff;
+    color: white;
+}
+
+.card-footer {
+    border-radius: 0 0 15px 15px !important;
+    border-top: 0 !important;
+    background-color: #f8f9fa;
+}
+
+.msg_card_body {
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.msg_cotainer {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 75%;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.msg_cotainer_send {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 75%;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.msg_time {
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    color: rgba(0,0,0,0.5);
+    font-size: 10px;
+}
+
+.msg_time_send {
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+}
+
+.message {
+    margin: 15px 0;
+}
+
+.message:nth-child(odd) {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.message:nth-child(even) {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.type_msg {
+    border: 0 !important;
+    border-radius: 15px !important;
+    height: 45px !important;
+    overflow-y: auto;
+}
+
+.send_btn {
+    border-radius: 15px !important;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.send_btn:hover {
+    background-color: #0056b3;
+}
+
+.user_img {
+    height: 50px;
+    width: 50px;
+}
+
+.online_icon {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: #4CD964;
+    border-radius: 50%;
+    bottom: 0.2em;
+    right: 0.4em;
+    border: 1.5px solid white;
+}
+
+.chat-icon {
+    font-size: 1.5em;
+    margin-right: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+.action_menu_btn {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+}
+
+.edit_btn {
+    cursor: pointer;
+    margin-left: 5px;
+    color: rgba(255,255,255,0.7);
+}
+
+.edit_input {
+    border-radius: 15px;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+}
+
+.edit_container {
+    display: flex;
+    gap: 5px;
+}
+
+.model-switcher {
+    padding: 15px;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.model-btn {
+    text-align: left;
+    padding: 1rem;
+}
+
+.model-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.model-btn i {
+    margin-right: 5px;
+}
+
+#modelStatus {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.system-message {
+    text-align: center;
+    color: #6c757d;
+    margin: 1rem 0;
+    background-color: #f8f9fa;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 10px auto;
+    max-width: 80%;
+}
+
+.chat-history {
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+}
+
+.loading-indicator {
+    text-align: center;
+    padding: 1rem;
+    color: #6c757d;
+}
+
+.loading-indicator:after {
+    content: "...";
+    animation: dots 1s steps(5, end) infinite;
+}
+
+.chat-status {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+@keyframes dots {
+    0%, 20% { content: "."; }
+    40% { content: ".."; }
+    60%, 100% { content: "..."; }
+}

@@ -1,0 +1,17 @@
+﻿.env
+__pycache__/
+*.py[cod]
+*.class
+*.pkl
+*.h5
+training_history.pkl
+input_tokenizer.json
+target_tokenizer.json
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*.log
+logs/

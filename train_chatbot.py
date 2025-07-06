@@ -3,14 +3,16 @@ import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Activation, Dropout
-from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import EarlyStopping  # Add this import
 import random
 import pickle
+from sklearn.model_selection import train_test_split
 
 lemmatizer = WordNetLemmatizer()
 
-# Load intents file
+# Load intents file 
 intents = json.loads(open('intents.json').read())
 
 words = []
@@ -58,20 +60,56 @@ training = np.array(training, dtype=object)
 train_x = np.array(list(training[:, 0]), dtype=np.float32)
 train_y = np.array(list(training[:, 1]), dtype=np.float32)
 
-# Create model - 3 layers. First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons equal to number of intents
-model = Sequential()
-model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(len(train_y[0]), activation='softmax'))
+# Split data into train/validation sets
+train_x, val_x, train_y, val_y = train_test_split(
+    train_x, train_y, 
+    test_size=0.2, 
+    random_state=42
+)
 
-# Compile model
-sgd = SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
-model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+# Modify the model architecture
+model = Sequential([
+    Dense(512, input_shape=(len(train_x[0]),), activation='relu'),
+    Dropout(0.5),
+    Dense(256, activation='relu'),
+    Dropout(0.3),
+    Dense(128, activation='relu'),
+    Dropout(0.2),
+    Dense(len(train_y[0]), activation='softmax')
+])
 
-# Train model
-hist = model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
-model.save('chatbot_model.h5', hist)
+# Use Adam optimizer instead of SGD for better convergence
+optimizer = Adam(learning_rate=0.001)
 
-print("Model created")
+# Compile with improved settings
+model.compile(
+    loss='categorical_crossentropy',
+    optimizer=optimizer,
+    metrics=['accuracy']
+)
+
+# Add validation monitoring
+early_stopping = EarlyStopping(
+    monitor='val_accuracy',  # Changed to monitor validation accuracy
+    patience=15,
+    min_delta=0.001,
+    restore_best_weights=True,
+    verbose=1  # Add verbose to see when early stopping occurs
+)
+
+# Train with validation split
+history = model.fit(
+    train_x, train_y,
+    validation_data=(val_x, val_y),
+    epochs=100,
+    batch_size=16,
+    verbose=1,
+    callbacks=[early_stopping]
+)
+
+# Save the model and history
+model.save('chatbot_model.h5')
+with open('training_history.pkl', 'wb') as f:
+    pickle.dump(history.history, f)
+
+print("Model created and training history saved")
