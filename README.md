@@ -2,6 +2,16 @@
 
 This project is a mental health chatbot designed to provide supportive responses to users' mental health concerns. The application uses NLP (Natural Language Processing) techniques to understand user inputs and generate appropriate responses.
 
+## 📚 Interview Preparation
+
+**Preparing for an interview?** Check out the comprehensive [INTERVIEW_GUIDE.md](INTERVIEW_GUIDE.md) which includes:
+- Complete technical explanations of all components
+- Common interview questions with detailed answers
+- Demo script and presentation tips
+- Deep dive into ML/NLP concepts used
+- Architecture diagrams and code walkthroughs
+- Future improvements and scalability discussions
+
 ## Project Architecture
 
 The chatbot consists of two AI components:
